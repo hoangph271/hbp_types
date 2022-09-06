@@ -2,7 +2,7 @@ use crate::utils::*;
 use httpstatus::StatusCode;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize)]
+#[derive(Serialize, Debug)]
 pub struct ApiList<T: Serialize> {
     #[serde(serialize_with = "status_code_serialize")]
     status_code: StatusCode,
@@ -18,7 +18,7 @@ pub struct ApiError {
     with_ui: bool,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ApiItem<T: Serialize> {
     #[serde(deserialize_with = "status_code_from_u16")]
     #[serde(serialize_with = "status_code_serialize")]
