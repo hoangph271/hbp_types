@@ -5,8 +5,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Debug)]
 pub struct ApiList<T: Serialize> {
     #[serde(serialize_with = "status_code_serialize")]
-    status_code: StatusCode,
-    items: Vec<T>,
+    pub status_code: StatusCode,
+    pub items: Vec<T>,
 }
 
 #[derive(Serialize, Clone, Debug, PartialEq, Eq)]
