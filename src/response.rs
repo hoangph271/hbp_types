@@ -123,7 +123,7 @@ mod more_impls {
 mod open_api_features {
     use super::*;
     use okapi::openapi3::Responses;
-    use rocket_okapi::response::OpenApiResponderInner;
+    use rocket_okapi::{gen::OpenApiGenerator, response::OpenApiResponderInner};
     use serde::Serialize;
 
     impl<T: Serialize> OpenApiResponderInner for ApiList<T> {
