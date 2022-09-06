@@ -15,7 +15,7 @@ pub struct ApiError {
     pub status_code: StatusCode,
     pub errors: Vec<String>,
     #[serde(skip_serializing)]
-    with_ui: bool,
+    pub with_ui: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
