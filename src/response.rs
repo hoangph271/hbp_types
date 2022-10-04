@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Debug)]
 pub struct ApiList<T: Serialize> {
+    #[serde(rename = "statusCode")]
     #[serde(serialize_with = "status_code_serialize")]
     pub status_code: StatusCode,
     pub items: Vec<T>,
@@ -11,6 +12,7 @@ pub struct ApiList<T: Serialize> {
 
 #[derive(Serialize, Clone, Debug, PartialEq, Eq)]
 pub struct ApiError {
+    #[serde(rename = "statusCode")]
     #[serde(serialize_with = "status_code_serialize")]
     pub status_code: StatusCode,
     pub errors: Vec<String>,
@@ -20,6 +22,7 @@ pub struct ApiError {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ApiItem<T: Serialize> {
+    #[serde(rename = "statusCode")]
     #[serde(deserialize_with = "status_code_from_u16")]
     #[serde(serialize_with = "status_code_serialize")]
     pub status_code: StatusCode,
