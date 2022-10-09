@@ -1,6 +1,6 @@
-mod models;
+mod challenge;
 mod response;
 mod utils;
 
-pub use models::*;
+pub use challenge::*;
 pub use response::*;
