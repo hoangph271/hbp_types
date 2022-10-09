@@ -1,1 +1,3 @@
-pub mod challenge;
+mod challenge;
+
+pub use challenge::*;
