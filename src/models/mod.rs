@@ -1,1 +1,1 @@
-mod challenge;
+pub mod challenge;
