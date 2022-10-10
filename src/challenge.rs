@@ -20,7 +20,7 @@ mod open_api_features {
     use rocket_okapi::{gen::OpenApiGenerator, response::OpenApiResponderInner};
     use serde::Serialize;
 
-    impl<T: Serialize> OpenApiResponderInner for Challenge {
+    impl OpenApiResponderInner for Challenge {
         fn responses(
             _: &mut rocket_okapi::gen::OpenApiGenerator,
         ) -> rocket_okapi::Result<okapi::openapi3::Responses> {
