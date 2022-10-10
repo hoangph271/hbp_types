@@ -14,6 +14,7 @@ okapi = { version = "0.7.0-rc.1", optional = true }
 rocket_okapi = { version = "0.8.0-rc.2", features = [
   "swagger",
 ], optional = true }
+schemars = { version = "0.8.11", optional = true }
 
 [features]
-okapi = ["dep:okapi", "dep:rocket_okapi"]
+okapi = ["dep:okapi", "dep:rocket_okapi", "dep:schemars"]

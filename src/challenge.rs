@@ -1,6 +1,9 @@
 use chrono::{serde::ts_milliseconds, DateTime, Utc};
+#[cfg(feature = "okapi")]
+use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
+#[cfg_attr(feature = "okapi", derive(JsonSchema))]
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Challenge {
     pub id: String,
