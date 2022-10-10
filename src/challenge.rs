@@ -34,3 +34,26 @@ mod open_api_features {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use chrono::{DateTime, NaiveDateTime, Utc};
+
+    use crate::Challenge;
+
+    #[test]
+    fn can_stringify() {
+        let okay = serde_json::to_string(&Challenge {
+            id: "_id".to_owned(),
+            title: "title".to_owned(),
+            why: "why".to_owned(),
+            note: "note".to_owned(),
+            started_at: DateTime::from_utc(NaiveDateTime::default(), Utc),
+            end_at: DateTime::from_utc(NaiveDateTime::default(), Utc),
+            finished: false,
+        })
+        .unwrap();
+
+        println!("{:?}", okay)
+    }
+}
