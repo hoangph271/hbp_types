@@ -1,6 +1,7 @@
 use chrono::{serde::ts_milliseconds, DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, serde::Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Challenge {
     pub id: String,
     pub title: String,
