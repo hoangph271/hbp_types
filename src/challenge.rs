@@ -43,7 +43,7 @@ mod tests {
 
     #[test]
     fn can_stringify() {
-        let okay = serde_json::to_string(&Challenge {
+        let _ = serde_json::to_string(&Challenge {
             id: "_id".to_owned(),
             title: "title".to_owned(),
             why: "why".to_owned(),
@@ -53,7 +53,10 @@ mod tests {
             finished: false,
         })
         .unwrap();
+    }
 
-        println!("{:?}", okay)
+    #[test]
+    fn can_parse_json() {
+        let _: Challenge = serde_json::from_str(&"{\"id\":\"_id\",\"title\":\"title\",\"why\":\"why\",\"note\":\"note\",\"started_at\":0,\"end_at\":0,\"finished\":false}").unwrap();
     }
 }
