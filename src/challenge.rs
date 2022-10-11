@@ -10,9 +10,11 @@ pub struct Challenge {
     pub title: String,
     pub why: String,
     pub note: String,
+    #[serde(rename = "startedAt")]
     #[schemars(with = "String")]
     #[serde(with = "ts_milliseconds")]
     pub started_at: DateTime<Utc>,
+    #[serde(rename = "endAt")]
     #[schemars(with = "String")]
     #[serde(with = "ts_milliseconds")]
     pub end_at: DateTime<Utc>,
