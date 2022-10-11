@@ -10,8 +10,10 @@ pub struct Challenge {
     pub title: String,
     pub why: String,
     pub note: String,
+    #[schemars(with = "String")]
     #[serde(with = "ts_milliseconds")]
     pub started_at: DateTime<Utc>,
+    #[schemars(with = "String")]
     #[serde(with = "ts_milliseconds")]
     pub end_at: DateTime<Utc>,
     pub finished: bool,
@@ -21,8 +23,7 @@ pub struct Challenge {
 mod open_api_features {
     use super::*;
     use okapi::openapi3::Responses;
-    use rocket_okapi::{gen::OpenApiGenerator, response::OpenApiResponderInner};
-    use serde::Serialize;
+    use rocket_okapi::response::OpenApiResponderInner;
 
     impl OpenApiResponderInner for Challenge {
         fn responses(
