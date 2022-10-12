@@ -60,6 +60,6 @@ mod tests {
 
     #[test]
     fn can_parse_json() {
-        let _: Challenge = serde_json::from_str(&"{\"id\":\"_id\",\"title\":\"title\",\"why\":\"why\",\"note\":\"note\",\"started_at\":0,\"end_at\":0,\"finished\":false}").unwrap();
+        let _: Challenge = serde_json::from_str(&"{\"id\":\"_id\",\"title\":\"title\",\"why\":\"why\",\"note\":\"note\",\"startedAt\":0,\"endAt\":0,\"finished\":false}").unwrap();
     }
 }
