@@ -4,18 +4,18 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
 #[cfg_attr(feature = "okapi", derive(JsonSchema))]
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
 pub struct Challenge {
     pub id: String,
     pub title: String,
     pub why: String,
     pub note: String,
     #[serde(rename = "startedAt")]
-    #[schemars(with = "String")]
+    #[cfg_attr(feature = "okapi", schemars(with = "String"))]
     #[serde(with = "ts_milliseconds")]
     pub started_at: DateTime<Utc>,
     #[serde(rename = "endAt")]
-    #[schemars(with = "String")]
+    #[cfg_attr(feature = "okapi", schemars(with = "String"))]
     #[serde(with = "ts_milliseconds")]
     pub end_at: DateTime<Utc>,
     pub finished: bool,
