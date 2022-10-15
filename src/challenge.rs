@@ -10,14 +10,14 @@ pub struct Challenge {
     pub title: String,
     pub why: String,
     pub note: String,
-    #[serde(rename = "startedAt")]
+    #[serde(rename = "startAtMs")]
     #[cfg_attr(feature = "okapi", schemars(with = "String"))]
     #[serde(with = "ts_milliseconds")]
-    pub started_at: DateTime<Utc>,
-    #[serde(rename = "endAt")]
+    pub start_at_ms: DateTime<Utc>,
+    #[serde(rename = "endAtMs")]
     #[cfg_attr(feature = "okapi", schemars(with = "String"))]
     #[serde(with = "ts_milliseconds")]
-    pub end_at: DateTime<Utc>,
+    pub end_at_ms: DateTime<Utc>,
     pub finished: bool,
 }
 
@@ -51,8 +51,8 @@ mod tests {
             title: "title".to_owned(),
             why: "why".to_owned(),
             note: "note".to_owned(),
-            started_at: DateTime::from_utc(NaiveDateTime::default(), Utc),
-            end_at: DateTime::from_utc(NaiveDateTime::default(), Utc),
+            start_at_ms: DateTime::from_utc(NaiveDateTime::default(), Utc),
+            end_at_ms: DateTime::from_utc(NaiveDateTime::default(), Utc),
             finished: false,
         })
         .unwrap();
